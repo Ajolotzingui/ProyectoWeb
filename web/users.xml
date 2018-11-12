@@ -1,0 +1,14 @@
+<root>
+    <user id="0" type="1">
+        <name>ajitzi</name>
+        <password>041298</password>
+    </user>
+    <user id="1" type="2">
+        <name>jony</name>
+        <password>esputo</password>
+    </user>
+    <user id="2" type="3">
+        <name>lastiri</name>
+        <password>niñita</password>
+    </user>
+</root>
