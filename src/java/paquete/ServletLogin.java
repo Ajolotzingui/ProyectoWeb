@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -39,7 +40,12 @@ public class ServletLogin extends HttpServlet {
 
         // check to see if this user/password combination are valid
         if (validateUser(users, id, password)) {
-            response.sendRedirect("bienvenido");
+            if(Tipo(users, id, password)==1)
+                response.sendRedirect("BienvenidoAdmin");
+            else if(Tipo(users, id, password)==2)
+                response.sendRedirect("BienvenidoProfe");
+            else
+                response.sendRedirect("BienvenidoAlumno");
         } else // username/password not validated
         {
             response.sendRedirect("fallo");
@@ -73,5 +79,34 @@ public class ServletLogin extends HttpServlet {
         }
         System.out.println("Usuario no logueado: Contraseña incorrecta");
         return false;
+    }
+    public int Tipo (File users, String userName, String password) {
+        try {
+            SAXBuilder builder = new SAXBuilder();
+            //File archivoXML = new File(url);
+            Document documento = builder.build(users);
+            Element raiz = documento.getRootElement();
+            List lista = raiz.getChildren("user");
+
+            for (int i = 0; i < lista.size(); i++) {
+                Element elemento = (Element) lista.get(i);
+                String name = elemento.getChildTextTrim("name");
+                String pass = elemento.getChildTextTrim("password");
+                if (name.equals(userName)) {
+                    if (pass.equals(password)) {
+                        Attribute attribute = elemento.getAttribute("type");
+                        int tipo=Integer.parseInt(attribute.getValue());
+                        System.out.println("tipo "+tipo);
+                        return tipo;
+                    }
+                } 
+            }
+        } catch (JDOMException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Usuario no logueado: Contraseña incorrecta");
+        return 0;
     }
 }

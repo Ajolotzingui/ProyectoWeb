@@ -16,6 +16,14 @@
         <servlet-name>fallo</servlet-name>
         <servlet-class>paquete.fallo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BienvenidoProfe</servlet-name>
+        <servlet-class>paquete.BienvenidoProfe</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BienvenidoAlumno</servlet-name>
+        <servlet-class>paquete.BienvenidoAlumno</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>fallo</servlet-name>
         <url-pattern>/fallo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BienvenidoProfe</servlet-name>
+        <url-pattern>/BienvenidoProfe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BienvenidoAlumno</servlet-name>
+        <url-pattern>/BienvenidoAlumno</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

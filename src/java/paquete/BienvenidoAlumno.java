@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class bienvenido extends HttpServlet {
+public class BienvenidoAlumno extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
@@ -23,7 +23,7 @@ public class bienvenido extends HttpServlet {
             out.println("<title>Servlet Servlet1</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Welcome: "+userName+"</h1>");
+            out.println("<h1>Welcome Alumno: "+userName+"</h1>");
             out.println("</body>");
             out.println("</html>");
     }
