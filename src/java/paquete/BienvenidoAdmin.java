@@ -23,7 +23,7 @@ public class BienvenidoAdmin extends HttpServlet {
             out.println("<title>Servlet Servlet1</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Welcome Admin: "+userName+"</h1>");
+            out.println("<h1>Welcome Administrador: "+userName+"</h1>");
             out.println("</body>");
             out.println("</html>");
     }

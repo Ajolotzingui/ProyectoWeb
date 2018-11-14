@@ -24,6 +24,10 @@
         <servlet-name>BienvenidoAlumno</servlet-name>
         <servlet-class>paquete.BienvenidoAlumno</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BienvenidoAdmin</servlet-name>
+        <servlet-class>paquete.BienvenidoAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>BienvenidoAlumno</servlet-name>
         <url-pattern>/BienvenidoAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BienvenidoAdmin</servlet-name>
+        <url-pattern>/BienvenidoAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
