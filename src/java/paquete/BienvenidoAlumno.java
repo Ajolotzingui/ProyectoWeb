@@ -20,7 +20,7 @@ public class BienvenidoAlumno extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Servlet1</title>");            
+            out.println("<title>Alumno Dashboard</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Welcome Alumno: "+userName+"</h1>");
