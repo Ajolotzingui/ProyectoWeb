@@ -37,12 +37,12 @@ public class ServletLogin extends HttpServlet {
         //Ruta absoluta del archivo BD.xml
         rutaAbsoluta = rutaAbsoluta.concat("users.xml");
         File users = new File(rutaAbsoluta);
-
+        int tipo=validateUser(users, id, password);
         // check to see if this user/password combination are valid
-        if (validateUser(users, id, password)) {
-            if(Tipo(users, id, password)==1)
+        if (tipo>0) {
+            if(tipo==1)
                 response.sendRedirect("BienvenidoAdmin");
-            else if(Tipo(users, id, password)==2)
+            else if(tipo==2)
                 response.sendRedirect("BienvenidoProfe");
             else
                 response.sendRedirect("BienvenidoAlumno");
@@ -53,7 +53,7 @@ public class ServletLogin extends HttpServlet {
 
     }
 
-    public boolean validateUser(File users, String userName, String password) {
+    public int validateUser(File users, String userName, String password) {
         try {
             SAXBuilder builder = new SAXBuilder();
             //File archivoXML = new File(url);
@@ -68,32 +68,6 @@ public class ServletLogin extends HttpServlet {
                 if (name.equals(userName)) {
                     if (pass.equals(password)) {
                         System.out.println("Usuario logueado:" + userName );
-                        return true;
-                    }
-                } 
-            }
-        } catch (JDOMException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Usuario no logueado: Contraseña incorrecta");
-        return false;
-    }
-    public int Tipo (File users, String userName, String password) {
-        try {
-            SAXBuilder builder = new SAXBuilder();
-            //File archivoXML = new File(url);
-            Document documento = builder.build(users);
-            Element raiz = documento.getRootElement();
-            List lista = raiz.getChildren("user");
-
-            for (int i = 0; i < lista.size(); i++) {
-                Element elemento = (Element) lista.get(i);
-                String name = elemento.getChildTextTrim("name");
-                String pass = elemento.getChildTextTrim("password");
-                if (name.equals(userName)) {
-                    if (pass.equals(password)) {
                         Attribute attribute = elemento.getAttribute("type");
                         int tipo=Integer.parseInt(attribute.getValue());
                         System.out.println("tipo "+tipo);
