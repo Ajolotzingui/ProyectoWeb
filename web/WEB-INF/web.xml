@@ -28,6 +28,18 @@
         <servlet-name>BienvenidoAdmin</servlet-name>
         <servlet-class>paquete.BienvenidoAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Preguntas</servlet-name>
+        <servlet-class>paquete.Preguntas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>opcionesPregunta</servlet-name>
+        <servlet-class>paquete.opcionesPregunta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearPregunta</servlet-name>
+        <servlet-class>paquete.CrearPregunta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
@@ -55,6 +67,18 @@
     <servlet-mapping>
         <servlet-name>BienvenidoAdmin</servlet-name>
         <url-pattern>/BienvenidoAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Preguntas</servlet-name>
+        <url-pattern>/Preguntas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>opcionesPregunta</servlet-name>
+        <url-pattern>/opcionesPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearPregunta</servlet-name>
+        <url-pattern>/CrearPregunta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
